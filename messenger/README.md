@@ -1,4 +1,4 @@
-# 🚀 Real-Time Messenger Application
+#  Real-Time Messenger Application
 
 A modern, full-stack real-time messaging application built with Next.js 15, featuring instant messaging, user authentication, file sharing, and a beautiful responsive UI.
 
@@ -8,7 +8,7 @@ A modern, full-stack real-time messaging application built with Next.js 15, feat
 ![Prisma](https://img.shields.io/badge/Prisma-5.22.0-2D3748)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4+-38B2AC)
 
-## ✨ Features
+##  Features
 
 ### Core Functionality
 - **Real-time Messaging**: Instant message delivery using Pusher WebSockets
@@ -37,7 +37,7 @@ A modern, full-stack real-time messaging application built with Next.js 15, feat
 - **Image Optimization**: Automatic image compression and optimization
 - **Caching**: Optimized data fetching and caching strategies
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 ### Frontend
 - **Next.js 15**: React framework with App Router
@@ -68,7 +68,7 @@ A modern, full-stack real-time messaging application built with Next.js 15, feat
 - **PostCSS**: CSS post-processing
 - **Autoprefixer**: CSS vendor prefixing
 
-## 📋 Prerequisites
+##  Prerequisites
 
 Before running this project, make sure you have:
 
@@ -77,7 +77,7 @@ Before running this project, make sure you have:
 - **Database** (PostgreSQL, MySQL, or SQLite)
 - **Git** for version control
 
-## 🚀 Installation & Setup
+##  Installation & Setup
 
 ### 1. Clone the Repository
 ```bash
@@ -165,7 +165,7 @@ pnpm dev
 
 Visit [http://localhost:3000](http://localhost:3000) to see your application running.
 
-## 🏗️ Project Structure
+##  Project Structure
 
 ```
 messenger/
@@ -194,7 +194,7 @@ messenger/
 └── configuration files
 ```
 
-## 📱 Key Features Explained
+##  Key Features Explained
 
 ### Real-time Messaging
 - Messages are delivered instantly using Pusher WebSockets
@@ -219,7 +219,7 @@ messenger/
 - Support for multiple image formats
 - Image preview and modal display
 
-## 🔧 Available Scripts
+##  Available Scripts
 
 ```bash
 # Development
@@ -238,7 +238,7 @@ npx prisma generate # Regenerate Prisma client
 npx prisma db push  # Push schema to database
 ```
 
-## 🌐 API Endpoints
+##  API Endpoints
 
 ### Authentication
 - `POST /api/register` - User registration
@@ -260,24 +260,24 @@ npx prisma db push  # Push schema to database
 ### Settings
 - `POST /api/settings` - Update user profile
 
-## 🔒 Environment Variables Explanation
+## Environment Variables Explanation
 
 | Variable | Description | Required |
 |----------|-------------|----------|
-| `DATABASE_URL` | Database connection string | ✅ |
-| `NEXTAUTH_SECRET` | NextAuth.js secret key | ✅ |
-| `GITHUB_ID` | GitHub OAuth client ID | ❌ |
-| `GITHUB_SECRET` | GitHub OAuth client secret | ❌ |
-| `GOOGLE_CLIENT_ID` | Google OAuth client ID | ❌ |
-| `GOOGLE_CLIENT_SECRET` | Google OAuth client secret | ❌ |
-| `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | Cloudinary cloud name | ❌ |
-| `NEXT_PUBLIC_PUSHER_APP_KEY` | Pusher app key (public) | ✅ |
-| `PUSHER_APP_ID` | Pusher app ID | ✅ |
-| `PUSHER_SECRET` | Pusher secret key | ✅ |
-| `RESEND_API_KEY` | Resend email API key | ❌ |
-| `RESEND_FROM` | Verified sender email | ❌ |
+| `DATABASE_URL` | Database connection string |  
+| `NEXTAUTH_SECRET` | NextAuth.js secret key | 
+| `GITHUB_ID` | GitHub OAuth client ID | 
+| `GITHUB_SECRET` | GitHub OAuth client secret | 
+| `GOOGLE_CLIENT_ID` | Google OAuth client ID | 
+| `GOOGLE_CLIENT_SECRET` | Google OAuth client secret | 
+| `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME` | Cloudinary cloud name | 
+| `NEXT_PUBLIC_PUSHER_APP_KEY` | Pusher app key (public) | 
+| `PUSHER_APP_ID` | Pusher app ID |
+| `PUSHER_SECRET` | Pusher secret key | 
+| `RESEND_API_KEY` | Resend email API key | 
+| `RESEND_FROM` | Verified sender email | 
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### Common Issues
 
@@ -305,7 +305,7 @@ npm install
 - Check client ID and secret configuration
 - Ensure proper redirect URIs are set
 
-## 🚀 Deployment
+##  Deployment
 
 ### Vercel (Recommended)
 1. Fork this repository
@@ -325,7 +325,7 @@ npm install
 - **Railway**: Integrated database hosting
 - **MongoDB Atlas**: Document database option
 
-## 🤝 Contributing
+##  Contributing
 
 We welcome contributions! Please follow these steps:
 
@@ -342,11 +342,11 @@ We welcome contributions! Please follow these steps:
 - Follow the existing code style
 - Update documentation as needed
 
-## 📄 License
+##  License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License 
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **Next.js Team** for the amazing framework
 - **Prisma Team** for the excellent ORM
@@ -354,17 +354,17 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Vercel** for hosting and deployment
 - **Tailwind CSS** for beautiful styling
 
-## 📞 Support
+##  Support
 
 If you have any questions or need help:
 
-- 📧 Email: your-email@domain.com
-- 🐛 Issues: [GitHub Issues](https://github.com/your-username/messenger-app/issues)
-- 💬 Discussions: [GitHub Discussions](https://github.com/your-username/messenger-app/discussions)
+- Email: swapnilshelke819@gmail.com
+- Issues: [GitHub Issues](https://github.com/Swapnil454/messenger-app/issues)
+- Discussions: [GitHub Discussions](https://github.com/Swapnil454/messenger-app/discussions)
 
 ---
 
 <div align="center">
-  <p>Made with ❤️ by <a href="https://github.com/your-username">Your Name</a></p>
+  <p>Made with ❤️ by <a href="https://github.com/Swapnil454">Swapnil Shelke</a></p>
   <p>⭐ Star this repository if it helped you!</p>
 </div>
