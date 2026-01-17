@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import type { User } from '@prisma/client'
+import { User } from '@prisma/client'
 import Image from 'next/image'
 import useActiveList from '../hooks/useActiveList';
 
