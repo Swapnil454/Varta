@@ -1,7 +1,7 @@
 'use client'
 
 import Image from "next/image";
-import { User, UserConversation } from "../generated/prisma";
+import { User, UserConversation } from "@prisma/client";
 
 
 interface AvatarGroupProps {
