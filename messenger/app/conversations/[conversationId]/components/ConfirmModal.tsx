@@ -3,10 +3,10 @@
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import useConversation from "@/hooks/useConversation";
-import { Dialog, DialogTitle } from "@headlessui/react";
+import { DialogTitle } from "@headlessui/react";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import toast from "react-hot-toast";
 import { FiAlertTriangle } from "react-icons/fi";
 

@@ -25,7 +25,6 @@ const getConversationById = async (
 
     if (!conversation) return null;
 
-    // 🔒 Infer types from the actual result
     type Message = (typeof conversation.messages)[number];
     type SeenBy = Message["seenBy"][number];
 

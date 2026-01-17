@@ -12,7 +12,7 @@ export default function Home() {
           <div className="flex flex-col items-center">
             <Image
               alt="Logo"
-              width={40}   //  smaller logo
+              width={40}   
               height={40}
               className="mb-2"
               src="/images/Logoo.png"

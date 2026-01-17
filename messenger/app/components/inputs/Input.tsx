@@ -19,7 +19,7 @@ interface InputProps<T extends Record<string, any>> {
   register: UseFormRegister<T>;
   errors: Partial<Record<keyof T, FieldError | Merge<FieldError, FieldErrorsImpl<any>>>>;
   disabled?: boolean;
-  validate?: (value: string) => true | string; // ✅ custom validation
+  validate?: (value: string) => true | string; // custom validation
 }
 
 const Input = <T extends Record<string, any>>({
@@ -62,7 +62,7 @@ const Input = <T extends Record<string, any>>({
           )}
         />
 
-        {/* ✅ Toggle password visibility */}
+        {/* Toggle password visibility */}
         {isPassword && (
           <button
             type="button"
@@ -79,7 +79,7 @@ const Input = <T extends Record<string, any>>({
         )}
       </div>
 
-      {/* ✅ Show error message */}
+      {/* Show error message */}
       {errors[id] && (
         <p className="mt-1 text-xs text-rose-500">
           {String(errors[id]?.message)}

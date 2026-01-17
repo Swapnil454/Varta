@@ -39,19 +39,19 @@ class ProductionLogger implements Logger {
 
 class DevelopmentLogger implements Logger {
   debug(message: string, data?: any) {
-    console.log(`🐛 ${message}`, data || '')
+    console.log(` ${message}`, data || '')
   }
 
   info(message: string, data?: any) {
-    console.log(`ℹ️  ${message}`, data || '')
+    console.log(` ${message}`, data || '')
   }
 
   warn(message: string, data?: any) {
-    console.warn(`⚠️  ${message}`, data || '')
+    console.warn(`  ${message}`, data || '')
   }
 
   error(message: string, error?: any) {
-    console.error(`❌ ${message}`, error || '')
+    console.error(` ${message}`, error || '')
   }
 }
 
