@@ -1,9 +1,9 @@
 
 import { NextResponse } from "next/server";
-import prisma from "@/app/libs/prismadb";
+import prisma from "../../../libs/prismadb";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
-import { sendMail } from "@/app/libs/resend";
+import { sendMail } from "../../../../app/libs/resend";
 
 const OTP_EXP_MINUTES = 10;
 
@@ -44,15 +44,18 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    // send with Nodemailer
+    // send email
     const info = await sendMail(email, "Your verification code", html);
 
-    console.log("=====================================");
-    console.log("OTP SENT (via Nodemailer)");
-    console.log("To:", email);
-    console.log("OTP (for debug only):", otp);
-    console.log("Message ID:", info.messageId);
-    console.log("=====================================");
+    // Only log in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log("=====================================");
+      console.log("OTP SENT (via SendGrid)");
+      console.log("To:", email);
+      console.log("OTP (for debug only):", otp);
+      console.log("Message ID:", info.messageId);
+      console.log("=====================================");
+    }
 
     return NextResponse.json({ ok: true });
   } catch (e) {

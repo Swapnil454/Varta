@@ -1,15 +1,15 @@
 
 'use client'
 
-import Avatar from "@/app/components/Avatar";
-import { Conversation, User, UserConversation } from "@/app/generated/prisma";
-import useOtherUser from "@/app/hooks/useOtherUser";
+import Avatar from "@/components/Avatar";
+import { Conversation, User, UserConversation } from "@/generated/prisma";
+import useOtherUser from "@/hooks/useOtherUser";
 import Link from "next/link";
 import { useMemo, useState, useEffect } from "react";
 import { HiChevronLeft, HiEllipsisHorizontal } from "react-icons/hi2";
 import ProfileDrawer from "./ProfileDrawer";
-import AvatarGroup from "@/app/components/AvatarGroup";
-import useActiveList from "@/app/hooks/useActiveList";
+import AvatarGroup from "@/components/AvatarGroup";
+import useActiveList from "@/hooks/useActiveList";
 
 interface HeaderProps {
   conversation:

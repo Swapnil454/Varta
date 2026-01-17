@@ -1,10 +1,10 @@
 'use client'
 
-import Button from "@/app/components/Button";
-import Input from "@/app/components/inputs/Input";
-import Select from "@/app/components/inputs/Select";
-import Modal from "@/app/components/Modal";
-import { User } from "@/app/generated/prisma";
+import Button from "@/components/Button";
+import Input from "@/components/inputs/Input";
+import Select from "@/components/inputs/Select";
+import Modal from "@/components/Modal";
+import { User } from "@/generated/prisma";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -126,7 +126,7 @@ const GroupChatModal: React.FC<GroupChatModalProps> = ({
                 >
                     <Button
                         disabled={isLoading}
-                        onclick={onClose}
+                        onClick={onClose}
                         type="button"
                         secondary
                     >

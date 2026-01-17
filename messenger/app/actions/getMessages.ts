@@ -1,4 +1,4 @@
-import prisma from "@/app/libs/prismadb";
+import prisma from "@/libs/prismadb";
 import { FullMessageType } from "../types";
 
 const getMessages = async (

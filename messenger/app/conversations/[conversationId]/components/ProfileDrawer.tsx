@@ -1,15 +1,15 @@
 'use client'
 
-import Avatar from "@/app/components/Avatar";
-import { Conversation, User } from "@/app/generated/prisma";
-import useOtherUser from "@/app/hooks/useOtherUser";
+import Avatar from "@/components/Avatar";
+import { Conversation, User } from "@/generated/prisma";
+import useOtherUser from "@/hooks/useOtherUser";
 import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
 import { format } from "date-fns";
 import React, { Fragment, useMemo, useState } from "react";
 import { IoClose, IoTrash } from "react-icons/io5";
 import ConfirmModal from "./ConfirmModal";
-import AvatarGroup from "@/app/components/AvatarGroup";
-import useActiveList from "@/app/hooks/useActiveList";
+import AvatarGroup from "@/components/AvatarGroup";
+import useActiveList from "@/hooks/useActiveList";
 
 interface ProfileDrawerProps {
     isOpen: boolean;

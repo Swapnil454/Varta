@@ -3,8 +3,8 @@
 
 import axios from "axios";
 
-import Button from "@/app/components/Button";
-import Input from "@/app/components/inputs/Input";
+import Button from "@/components/Button";
+import Input from "@/components/inputs/Input";
 import { useCallback, useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import AuthSocialButton from "./AuthSocialButton";
@@ -65,7 +65,16 @@ const AuthForm = () => {
           // Go to verify page
           router.push(`/verify?email=${encodeURIComponent(data.email)}`);
         })
-        .catch(() => toast.error('Something went wrong!'))
+        .catch((error) => {
+          console.error('Registration error:', error);
+          if (error.response?.status === 409) {
+            toast.error('Email already exists. Please use a different email or try logging in.');
+          } else if (error.response?.status === 400) {
+            toast.error('Please fill in all required fields.');
+          } else {
+            toast.error('Registration failed. Please try again.');
+          }
+        })
         .finally(() => setIsLoading(false));
     }
 

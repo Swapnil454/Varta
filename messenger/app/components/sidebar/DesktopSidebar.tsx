@@ -2,9 +2,9 @@
 'use client'
 
 import { useState } from "react";
-import useRoutes from "@/app/hooks/useRoutes";
+import useRoutes from "@/hooks/useRoutes";
 import DesktopItem from "./DesktopItem";
-import { User } from "@/app/generated/prisma";
+import { User } from "@/generated/prisma";
 import Avatar from "../Avatar";
 import SettingsModal from "./SettingsModal";
 

@@ -1,9 +1,9 @@
 
 import { NextResponse } from "next/server";
-import prisma from "@/app/libs/prismadb";
+import prisma from "../../../libs/prismadb";
 import bcrypt from "bcrypt";
 import crypto from "crypto";
-import { sendMail } from "@/app/libs/resend"; 
+import { sendMail } from "../../../libs/resend"; 
 
 const OTP_EXP_MINUTES = 10;
 
@@ -45,10 +45,13 @@ export async function POST(request: Request) {
       </div>
     `;
 
-    // Send with Nodemailer
+    // Send email via SendGrid
     await sendMail(email, "Your password reset code", html);
 
-    console.log("🔐 Password reset OTP sent:", { to: email, otp });
+    // Only log in development
+    if (process.env.NODE_ENV === 'development') {
+      console.log("🔐 Password reset OTP sent:", { to: email, otp });
+    }
 
     return NextResponse.json({ ok: true });
   } catch (e) {

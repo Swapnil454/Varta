@@ -1,17 +1,17 @@
 
 'use client'
 
-import useConversation from "@/app/hooks/useConversation";
-import { FullConversationType } from "@/app/types";
+import useConversation from "@/hooks/useConversation";
+import { FullConversationType } from "@/types";
 import clsx from "clsx";
 import { useRouter } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
 import { MdOutlineGroupAdd } from "react-icons/md";
 import ConversationBox from "./ConversationBox";
 import GroupChatModal from "./GroupChatModal";
-import { User } from "@/app/generated/prisma";
+import { User } from "@/generated/prisma";
 import { useSession } from "next-auth/react";
-import { pusherClient } from "@/app/libs/pusher";
+import { pusherClient } from "@/libs/pusher";
 import { find } from "lodash";
 
 interface ConversationListProps {

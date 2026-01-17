@@ -1,4 +1,4 @@
-import prisma from "@/app/libs/prismadb";
+import prisma from "@/libs/prismadb";
 import { FullConversationType } from "../types";
 
 const getConversationById = async (

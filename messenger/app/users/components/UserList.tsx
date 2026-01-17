@@ -1,11 +1,11 @@
 
 'use client'
 
-import { User } from "@/app/generated/prisma";
+import { User } from "@/generated/prisma";
 import React, { useState } from "react";
 import UserBox from "./UserBox";
 import { HiOutlineDotsVertical } from "react-icons/hi";
-import SettingsModal from "@/app/components/sidebar/SettingsModal";
+import SettingsModal from "@/components/sidebar/SettingsModal";
 import { Menu } from "@headlessui/react";
 import { signOut } from "next-auth/react";
 
