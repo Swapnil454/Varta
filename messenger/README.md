@@ -8,6 +8,10 @@ A modern, full-stack real-time messaging application built with Next.js 15, feat
 ![Prisma](https://img.shields.io/badge/Prisma-5.22.0-2D3748)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.4+-38B2AC)
 
+## 🚀 Live Demo
+
+Check out the live application: **[https://real-time-messenger-application.vercel.app](https://real-time-messenger-application.vercel.app)**
+
 ##  Features
 
 ### Core Functionality
