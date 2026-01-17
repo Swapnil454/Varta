@@ -4,7 +4,7 @@
 import { useState } from "react";
 import useRoutes from "@/hooks/useRoutes";
 import DesktopItem from "./DesktopItem";
-import { User } from "@/generated/prisma";
+import { User } from "@prisma/client";
 import Avatar from "../Avatar";
 import SettingsModal from "./SettingsModal";
 

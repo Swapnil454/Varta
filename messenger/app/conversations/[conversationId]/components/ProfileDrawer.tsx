@@ -1,7 +1,7 @@
 'use client'
 
 import Avatar from "@/components/Avatar";
-import { Conversation, User } from "@/generated/prisma";
+import { Conversation, User } from "@prisma/client";
 import useOtherUser from "@/hooks/useOtherUser";
 import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
 import { format } from "date-fns";

@@ -2,7 +2,7 @@
 'use client'
 
 import Avatar from "@/components/Avatar";
-import { Conversation, User, UserConversation } from "@/generated/prisma";
+import { Conversation, User, UserConversation } from "@prisma/client";
 import useOtherUser from "@/hooks/useOtherUser";
 import Link from "next/link";
 import { useMemo, useState, useEffect } from "react";

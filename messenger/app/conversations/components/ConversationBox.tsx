@@ -10,7 +10,7 @@ import clsx from "clsx";
 import { FullConversationType } from "@/types";
 import useOtherUser from "@/hooks/useOtherUser";
 import Avatar from "@/components/Avatar";
-import { User } from "@/generated/prisma";
+import { User } from "@prisma/client";
 import AvatarGroup from "@/components/AvatarGroup";
 
 interface ConversationBoxProps {

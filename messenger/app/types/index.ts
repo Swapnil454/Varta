@@ -1,4 +1,4 @@
-import { Conversation, Message, User, UserConversation, UserSeenMessage } from "@/generated/prisma";
+import { Conversation, Message, User, UserConversation, UserSeenMessage } from "@prisma/client";
 
 export type FullMessageType = Message & {
   sender: User;

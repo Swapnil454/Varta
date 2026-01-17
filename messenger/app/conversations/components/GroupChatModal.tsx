@@ -4,7 +4,7 @@ import Button from "@/components/Button";
 import Input from "@/components/inputs/Input";
 import Select from "@/components/inputs/Select";
 import Modal from "@/components/Modal";
-import { User } from "@/generated/prisma";
+import { User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";

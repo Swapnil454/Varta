@@ -1,7 +1,7 @@
 
 'use client'
 
-import { User } from "@/generated/prisma";
+import { User } from "@prisma/client";
 import React, { useState } from "react";
 import UserBox from "./UserBox";
 import { HiOutlineDotsVertical } from "react-icons/hi";

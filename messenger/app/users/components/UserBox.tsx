@@ -3,7 +3,7 @@
 
 import Avatar from "@/components/Avatar";
 import LoadingModal from "@/components/LoadingModal";
-import { User } from "@/generated/prisma";
+import { User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useState } from "react";
