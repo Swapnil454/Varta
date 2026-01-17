@@ -1,4 +1,4 @@
-import prisma from "@/libs/prismadb";
+import prisma from "../libs/prismadb";
 import { FullConversationType } from "../types";
 
 const getConversationById = async (
@@ -25,11 +25,15 @@ const getConversationById = async (
 
     if (!conversation) return null;
 
+    // 🔒 Infer types from the actual result
+    type Message = (typeof conversation.messages)[number];
+    type SeenBy = Message["seenBy"][number];
+
     return {
       ...conversation,
-      messages: conversation.messages.map((msg) => ({
+      messages: conversation.messages.map((msg: Message) => ({
         ...msg,
-        seen: msg.seenBy.map((sb) => sb.user),
+        seen: msg.seenBy.map((sb: SeenBy) => sb.user),
       })),
     };
   } catch (error) {
@@ -37,6 +41,5 @@ const getConversationById = async (
     return null;
   }
 };
-
 
 export default getConversationById;
