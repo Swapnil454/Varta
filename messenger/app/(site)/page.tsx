@@ -1,6 +1,36 @@
 
 import Image from "next/image";
 import AuthForm from "./components/AuthForm";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Login or Sign Up",
+  description:
+    "Login or create a new account on Varta. Start chatting with friends, family, and colleagues in real-time. Secure and fast messaging platform.",
+  keywords: [
+    "login",
+    "sign up",
+    "register",
+    "varta login",
+    "chat login",
+    "create account",
+  ],
+  openGraph: {
+    title: "Login or Sign Up | Varta",
+    description:
+      "Join Varta today! Login or create an account to start messaging instantly.",
+    url: "https://joinvarta.com",
+    type: "website",
+  },
+  twitter: {
+    title: "Login or Sign Up | Varta",
+    description:
+      "Join Varta today! Login or create an account to start messaging instantly.",
+  },
+  alternates: {
+    canonical: "https://joinvarta.com",
+  },
+};
 
 export default function Home() {
   return (

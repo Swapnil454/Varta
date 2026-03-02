@@ -60,7 +60,7 @@ const EmptyState = () => {
           transition={{ delay: 0.5, duration: 0.8, ease: "easeOut" }}
           className="mt-6 text-3xl font-bold text-gray-900 text-center relative overflow-hidden"
         >
-          Messenger for Windows
+          Varta for Windows
           <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/60 to-transparent shimmer" />
         </motion.h3>
 
