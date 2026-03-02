@@ -13,6 +13,8 @@ Disallow: /reset-password
 
 # Allow crawling of public pages
 Allow: /
+Allow: /privacy
+Allow: /terms
 Allow: /forgot-password
 
 # Sitemap location
