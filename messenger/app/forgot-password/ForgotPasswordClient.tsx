@@ -12,6 +12,36 @@ interface ForgotForm {
   email: string;
 }
 
+// Helper to get user-friendly error message
+function getErrorMessage(error: any): string {
+  const data = error?.response?.data;
+  const status = error?.response?.status;
+
+  // Handle structured error responses
+  if (typeof data === "object" && data?.error) {
+    return data.error;
+  }
+
+  // Handle string error responses
+  if (typeof data === "string" && data.length > 0) {
+    return data;
+  }
+
+  // Handle common HTTP status codes
+  switch (status) {
+    case 429:
+      const retryAfter = data?.retryAfter || 300;
+      const minutes = Math.ceil(retryAfter / 60);
+      return `Too many attempts. Please try again in ${minutes} minute${minutes > 1 ? "s" : ""}.`;
+    case 503:
+      return "Email service is temporarily unavailable. Please try again in a few minutes.";
+    case 500:
+      return "Something went wrong. Please try again later.";
+    default:
+      return "Failed to send reset code. Please try again.";
+  }
+}
+
 export default function ForgotPasswordClient() {
   const router = useRouter();
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<ForgotForm>();
@@ -20,11 +50,12 @@ export default function ForgotPasswordClient() {
   const onSubmit: SubmitHandler<ForgotForm> = async (data) => {
     try {
       await axios.post("/api/auth/forgot-password", { email: data.email });
-      toast.success("Reset code sent to your email");
+      toast.success("If an account exists with this email, a reset code has been sent.");
       setSent(true);
       router.push(`/reset-password?email=${encodeURIComponent(data.email)}`);
     } catch (e: any) {
-      toast.error(e?.response?.data || "Failed to send reset code");
+      const message = getErrorMessage(e);
+      toast.error(message);
     }
   };
 

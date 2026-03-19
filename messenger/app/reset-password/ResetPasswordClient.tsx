@@ -7,6 +7,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import Button from "@/components/Button";
 import Input from "@/components/inputs/Input";
+import PasswordStrengthIndicator from "@/components/PasswordStrengthIndicator";
 import { useState, useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
@@ -14,6 +15,36 @@ interface ResetForm {
   code: string;
   newPassword: string;
   confirmPassword: string;
+}
+
+// Helper to get user-friendly error message
+function getErrorMessage(error: any): string {
+  const data = error?.response?.data;
+  const status = error?.response?.status;
+
+  // Handle structured error responses
+  if (typeof data === "object" && data?.error) {
+    return data.error;
+  }
+
+  // Handle string error responses
+  if (typeof data === "string" && data.length > 0) {
+    return data;
+  }
+
+  // Handle common HTTP status codes
+  switch (status) {
+    case 429:
+      return "Too many attempts. Please wait before trying again.";
+    case 410:
+      return "Code has expired. Please request a new one.";
+    case 401:
+      return "Invalid code. Please check and try again.";
+    case 503:
+      return "Service temporarily unavailable. Please try again in a few minutes.";
+    default:
+      return "Reset failed. Please try again.";
+  }
 }
 
 export default function ResetPasswordClient () {
@@ -33,10 +64,11 @@ export default function ResetPasswordClient () {
     setValue,
     formState: { errors, isSubmitting },
   } = useForm<ResetForm>({
-    defaultValues: { code: "" },
+    defaultValues: { code: "", newPassword: "", confirmPassword: "" },
   });
 
   const codeValue = watch("code");
+  const passwordValue = watch("newPassword");
 
   useEffect(() => {
     if (!email) {
@@ -68,11 +100,12 @@ export default function ResetPasswordClient () {
     if (cooldown > 0) return;
     setIsSending(true);
     try {
-      await axios.post("/api/auth/send-otp", { email });
-      toast.success("New code sent");
+      await axios.post("/api/auth/forgot-password", { email });
+      toast.success("New code sent to your email");
       setCooldown(30);
     } catch (e: any) {
-      toast.error(e?.response?.data || "Could not resend");
+      const message = getErrorMessage(e);
+      toast.error(message);
     } finally {
       setIsSending(false);
     }
@@ -88,14 +121,18 @@ export default function ResetPasswordClient () {
       toast.success("Password reset successfully");
       router.push("/");
     } catch (e: any) {
-      toast.error(e?.response?.data || "Reset failed");
+      const message = getErrorMessage(e);
+      toast.error(message);
 
-      setShake(true);
-      setTimeout(() => setShake(false), 500);
-
-      setValue("code", "");
-      inputRefs.current.forEach((input) => { if (input) input.value = ""; });
-      inputRefs.current[0]?.focus();
+      // Only shake and clear code for invalid code errors
+      const status = e?.response?.status;
+      if (status === 401 || status === 410 || status === 429) {
+        setShake(true);
+        setTimeout(() => setShake(false), 500);
+        setValue("code", "");
+        inputRefs.current.forEach((input) => { if (input) input.value = ""; });
+        inputRefs.current[0]?.focus();
+      }
     }
   };
 
@@ -151,15 +188,18 @@ export default function ResetPasswordClient () {
             </div>
 
             {/* Password Fields */}
-            <Input<ResetForm>
-              id="newPassword"
-              label="New Password"
-              type="password"
-              register={register}
-              errors={errors}
-              required
-              disabled={isSubmitting}
-            />
+            <div className="space-y-2">
+              <Input<ResetForm>
+                id="newPassword"
+                label="New Password"
+                type="password"
+                register={register}
+                errors={errors}
+                required
+                disabled={isSubmitting}
+              />
+              <PasswordStrengthIndicator password={passwordValue || ""} />
+            </div>
 
             <Input<ResetForm>
               id="confirmPassword"

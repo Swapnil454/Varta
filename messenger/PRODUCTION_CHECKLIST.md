@@ -3,10 +3,10 @@
 ## 🔐 Security
 - [ ] Generate strong NEXTAUTH_SECRET (min 32 characters)
 - [ ] Use production database with proper auth
-- [ ] Enable HTTPS and set NEXTAUTH_URL correctly  
+- [ ] Enable HTTPS and set NEXTAUTH_URL correctly
 - [ ] Rotate all API keys and secrets
 - [ ] Review CORS settings
-- [ ] Enable rate limiting
+- [x] Enable rate limiting (implemented in-memory rate limiter)
 
 ## 📧 Email Configuration
 - [ ] Verify sender domain in SendGrid
@@ -45,7 +45,8 @@ NEXTAUTH_URL="https://yourdomain.com"
 
 ## 🚨 Critical Issues to Address
 1. **Remove all sensitive data from .env**
-2. **Stop logging OTP codes**
+2. **Stop logging OTP codes** (only logged in development mode now)
 3. **Implement proper error boundaries**
-4. **Add input validation on all routes**
+4. ~~Add input validation on all routes~~ (implemented)
 5. **Set up SSL certificates**
+6. **Consider using Redis for distributed rate limiting** (current: in-memory)
